@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone</title>
+    <link rel="icon" href="images/sportify icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar" role="navigation">
+            <div class="logo">
+                <img src="images/sportify_logo.png" alt="Spotify Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#" id="search-btn"><i class="fas fa-search"></i> Search</a></li>
+                <li><a href="libraries.html" id="library-btn"><i class="fas fa-book"></i> Library</a></li>
+            </ul>
+        </nav>
+        <aside class="sidebar" role="complementary">
+            <ul>
+                <li><a href="#" id="create-playlist-btn"><i class="fas fa-plus-circle"></i> Create Playlist</a></li>
+                <li><a href="#"><i class="fas fa-heart"></i> Liked Songs</a></li>
+                <ul id="dynamic-playlists"></ul>
+            </ul>
+        </aside>
+        <main class="main-content" role="main">
+            <section class="playlist">
+                <h1 id="playlist-title">Playlist Name</h1>
+                <div class="songs" id="playlist-songs">
+                    <!-- Songs will be dynamically added here -->
+                </div>
+                <button id="add-song-to-playlist-btn"><i class="fas fa-plus-circle"></i> Add Song to Playlist</button>
+                <div id="playlist-select-modal" class="modal" role="dialog" aria-labelledby="playlist-select-title">
+                    <div class="modal-content">
+                        <span class="close" role="button" aria-label="Close">&times;</span>
+                        <ul id="playlist-select-list" aria-labelledby="playlist-select-title">
+                            <!-- Playlists will be dynamically added here -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="song-list">
+                <h2>Available Songs</h2>
+                <ul id="available-songs">
+                    <!-- Available songs will be dynamically added here -->
+                </ul>
+            </section>
+
+            <section class="artist-info">
+                <div class="artist-card">
+                    <h2>Artist Name</h2>
+                    <button class="follow-btn"><i class="fas fa-user-plus"></i> Follow</button>
+                    <button class="like-btn"><i class="fas fa-heart"></i></button>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer" role="contentinfo">
+            <div class="controls">
+                <button id="shuffle"><i class="fas fa-random"></i></button>
+                <button id="prev"><i class="fas fa-backward"></i></button>
+                <button id="play"><i class="fas fa-play"></i></button>
+                <button id="next"><i class="fas fa-forward"></i></button>
+                <button id="repeat"><i class="fas fa-redo"></i></button>
+            </div>
+            <div class="progress-container">
+                <span id="current-time">0:00</span>
+                <input type="range" id="progress-bar" value="0" min="0" max="100">
+                <span id="duration">0:00</span>
+            </div>
+            <div class="now-playing">
+                <span>Now Playing: Song Name</span>
+            </div>
+            <div class="volume-card">
+                <div class="volume-control">
+                    <span id="volume-label">Volume: 100%</span>
+                    <input type="range" id="volume-bar" value="100" min="0" max="100">
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Search Panel -->
+    <div id="search-panel" class="modal" role="dialog" aria-labelledby="search-panel-title">
+        <div class="modal-content">
+            <span class="close" role="button" aria-label="Close">&times;</span>
+            <input type="text" id="search-input" placeholder="Search for a song...">
+            <ul id="recent-searches">
+                <!-- Recent searches will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Create Playlist Modal -->
+    <div id="create-playlist-modal" class="modal" role="dialog" aria-labelledby="create-playlist-modal-title">
+        <div class="modal-content">
+            <span class="close" role="button" aria-label="Close">&times;</span>
+            <input type="text" id="playlist-name-input" placeholder="Enter playlist name">
+            <button id="create-playlist">Create</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
